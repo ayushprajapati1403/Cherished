@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplateForCart') %>
+
+<div class="cart-box">
+    <% if (cart.length > 0) { %>
+    <div class="card-1">  
+        <h1 class="bucket">Your Bucket</h1>
+            <% cart.forEach((item , index) => { %>
+            <div class="product">
+                <div class="wrapper">
+                    <div class="img img-1"><img src="<%= item.images[0] %>" alt=""></div>
+                </div>
+                <div class="info">
+                    <h2><%= item.title %></h2>
+                    <div>
+                        <div>Price :</div>
+                        <div><%= item.price %> / Month</div>
+                        <div>Material :</div>
+                        <div><%= item.material %></div>
+                        <div>Dimentions :</div>
+                        <div><%= item.dimension %></div>
+                        <div>Unit :</div>
+                        <div><%= item.quantity %></div>
+                        <div>Colour :</div>
+                        <div><%= item.color %></div>
+                    </div>
+                    <div class="controls">
+                        <form action="/cart/remove/<%= item.id %>?_method=DELETE" method="POST" style="display: inline;">
+                            <button class="btn">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+    <% } else { %>
+        <h1 class="bucket empty">Your cart is empty</h1>
+    <% } %>    
+    <% if (cart.length > 0) { %>
+    <div class="card-2">
+        <div class="summary">
+            <h1>Summary</h1>
+        </div>
+        <div class="summary-info">
+            <div class="sum-info">
+                <div>Subtotal :</div>
+                <div><%= subtotal %> Rs</div>
+                <div>Estimated Shipping & Handling : </div>
+                <div><%= shipping %> Rs</div>
+                <div>Estimated Tax : </div>
+                <div><%= tax %> Rs</div>
+                <div>Total : </div>
+                <div><%= total %> Rs</div>
+            </div>
+            <div class="checkout">
+                <button class="btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>

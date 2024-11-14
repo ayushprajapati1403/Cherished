@@ -1,0 +1,95 @@
+<% layout('layouts/boilereplateForNew') %>
+<div class="main-container">
+    <section class="container">
+        <header>Upload Product</header>
+        <form action="/products" class="form needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <div class="input-box">
+                <label for="product_name">Product Name</label>
+                <input type="text" id="product_name" placeholder="Enter a product name" name="product[title]" required>
+                <div class="invalid-feedback">
+                    Please enter a product name.
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="dimention">Dimension</label>
+                <input type="text" id="dimention" placeholder="Enter a dimension" name="product[dimention]" required>
+                <div class="invalid-feedback">
+                    Please enter a dimension.
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="dimention">Category</label>
+                <input type="text" id="dimention" placeholder="Enter a category" name="product[category]" required>
+                <div class="invalid-feedback">
+                    Please enter a category.
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" placeholder="Enter a price" name="product[price]" required>
+                    <div class="invalid-feedback">
+                        Please enter a price.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="material">Material</label>
+                    <input type="text" id="material" placeholder="Enter a material name" name="product[material]" required>
+                    <div class="invalid-feedback">
+                        Please enter a material name.
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label for="colour">Colour</label>
+                    <input type="text" id="colour" placeholder="Enter a colour" name="product[color]" required>
+                    <div class="invalid-feedback">
+                        Please enter a colour.
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="stock">Stock</label>
+                    <input type="text" id="stock" placeholder="Enter a no of product" name="product[stock]" required>
+                    <div class="invalid-feedback">
+                        Please enter a no of product.
+                    </div>
+                </div>
+            </div>
+            <div class="storage-box">
+                <h3>Storage</h3>
+                <div class="storage-option">
+                    <div class="storage">
+                        <input type="radio" id="check-yes" name="product[storage]" checked>
+                        <label for="check-yes">Yes</label>
+                    </div>
+                    <div class="storage">
+                        <input type="radio" id="check-no" name="product[storage]">
+                        <label for="no">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="formFileMultiple">Upload Images</label>
+                <input class="form-control" type="file" id="formFileMultiple" name="image" multiple required>
+                <div class="invalid-feedback">
+                    Please upload a image.
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="description">Description</label>
+            </div>
+            <div class="text-area">
+                <textarea name="product[description]" rows="4" id="descriptio" required ></textarea>
+                <div class="invalid-feedback">
+                    Please enter a description.
+                </div>
+            </div>
+            <div class="submit">
+                <button class="btn">Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+    

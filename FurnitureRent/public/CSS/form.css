@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background-color: rgb(227, 227, 227);
+}
+
+.invalid-feedback{
+    font-size: 1.2rem;
+}
+
+.main-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(227, 227, 227);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.container{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container header{
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.container .form{
+    margin-top: 30px;
+}
+
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box label{
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.form .input-box input{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1.5rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.column{
+    display: flex;
+    column-gap: 20px;
+}
+
+.form .storage-box{
+    margin-top: 30px;
+}
+
+.storage-box h3{
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.storage input{
+    accent-color: black;
+}
+
+.form :where(.storage-option , .storage){
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.form .storage{
+    column-gap: 5px;
+    cursor: pointer;
+}
+
+.form :where(.storage input , .storage label){
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.form .input-box .form-control{
+    border: none;
+}
+
+.text-area{
+    margin-top: 20px;
+}
+
+.text-area textarea{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.submit{
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+
+.btn{
+    color: #ddd;
+    background-color: black;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: 1.5rem;
+}
+
+html{
+    font-size: 62.5%; /* 1rem = 10px */
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.header{
+    padding: 0 4.8rem;
+    height: 6.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+.header .logo{
+    height: 4rem;
+}
+
+.navbar-list{
+    display: flex;
+    gap: 4.8rem;
+    list-style: none;
+    align-items: baseline;
+}
+
+
+.navbar-link:link,.navbar-link:visited{
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s;
+    font-weight: 0;
+}
+
+.navbar-link:hover,.navbar-link:active{
+    color: grey;
+}
+
+.navbar{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.search-btn{
+    background-color: white;
+    border: none;
+    color: black;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    transform: translate(16rem);
+}
+
+.search-box{
+    width: 20rem;
+    height: 3.8rem;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mobile-navbar-btn{
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.mobile-nav-icon{
+    width: 4rem;
+    height: 4rem;
+    color: white;
+}
+
+.mobile-nav-icon[name="close-outline"]{
+    display: none;
+}
+
+.footer{
+    width: 100%;
+    height: 300px;
+    background-color: black;
+    margin-top: 20px;
+}
+
+.part-1{
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.section-1{
+    margin-left: 50px;
+}
+
+.icons{
+    width: 100%;
+    height: 30%;
+    font-size: 4rem;
+    color: grey;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.section-1 h2{
+    color: white;
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.info a{
+    color: grey;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.info-1{
+    flex-direction: row;
+    gap: 20px;
+}
+
+.info-1 i{
+    margin-top: 20px;
+    font-size: 3rem;
+}
+
+.part-2{
+    width: 100%;
+    height: 20%;
+    color: gray;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+textarea{
+    background-color: white;
+}
+
+.btn:hover{
+    color: white;
+}
+
+
+/* ===========================================
+Responsive Codes 
+======================================= */
+
+@media(max-width : 83em){
+    
+}
+
+@media(max-width : 75em){
+
+    *{
+        font-size: 1.2rem;
+    }
+
+    .header{
+        position: relative;
+    }
+
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+        color: white;
+    }
+    
+    .navbar{
+        /* display: none; */
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+        
+        justify-content: center;
+        align-items: center;
+
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .navbar-list{
+        flex-direction: column-reverse;
+        align-items: center;
+        
+    }
+
+    .active .navbar{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .active .mobile-navbar-btn .mobile-nav-icon[name="close-outline"]{
+        display: block;
+    }
+
+    .active .mobile-navbar-btn .mobile-nav-icon[name="menu-outline"]{
+        display: none;
+    }
+
+    
+    .footer{
+        height: 100%;
+    }
+
+    .part-1{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width : 45em){
+    
+}
+
+@media(max-width : 35em){
+    .header{
+        padding: 0 2.4rem;
+    }
+}
+

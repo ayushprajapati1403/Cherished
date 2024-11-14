@@ -1,0 +1,175 @@
+<% layout('layouts/boilerplateForProduct') %>
+    <div class="product">
+        <div class="card1">
+            <div class="images">
+                <div class="main-image">
+                    <img id="main-img" src="<%= products.images[0]?.url %>" alt="">
+                </div>
+                <div class="other-images">
+                    <div class="image">
+                        <img id="first-img" src="<%= products.images[1]?.url %>" alt="">
+                        <img id="second-img" src="<%= products.images[2]?.url %>" alt="">
+                        <img id="third-img" src="<%= products.images[3]?.url %>" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="freebies">
+                <h2>Freebies</h2>
+                <ul class="list">
+                    <li>Free Delivery</li>
+                    <li>Easy Return</li>
+                    <li>Free Installation</li>
+                    <li>Free Relocation</li>
+                    <li>Free Maintenance</li>
+                </ul>
+            </div>
+            <div class="description">
+                <h2>Description</h2>
+                <div>
+                    <%= products.description %>
+                </div>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="order-details">
+                <div class="information">
+                    <h2>
+                        <%= products.title %>
+                    </h2>
+                    <% 
+                    // Calculate the average rating and floor it
+                    let totalRating = 0;
+                    products.reviews.forEach(review => {
+                    totalRating += review.rating;
+                    });
+                    let averageRating = products.reviews.length ? Math.floor(totalRating / products.reviews.length) : 0;
+                    %>
+                    <div class="star">
+                        <p class="starability-result" data-rating="<%= parseInt(averageRating) %>"></p>
+                    </div>
+                    <h2>INR <%= products.price %>/Month</h2>
+                    <div class="text">
+                        <div class="color1">Security Deposit (Refundable)</div>
+                        <div>1600/-</div>
+                        <div class="color1">Estimate Delivery </div>
+                        <div>2 weeks</div>
+                    </div>
+                </div>
+                <div class="tenure">
+                    <form action="/cart/add/<%= products._id %>" method="post">
+                        <label for="tenure">
+                            <h4>Select Tenure</h4>
+                        </label>
+                        <div class="buttons">
+                            <select name="tenure" id="tenure">
+                                <% for (let i = 1; i <= 12; i++) { %>
+                                    <option value="<%= i %>"><%= i %> Month<%= i > 1 ? 's' : '' %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="selection">
+                            <div class="unit">
+                                <label for="unit">
+                                    <h4>Unit</h4>
+                                </label>
+                                <select name="unit" id="unit">
+                                    <% for (let i = 1; i <= 4; i++) { %>
+                                        <option value="<%= i %>"><%= i %> Unit<%= i > 1 ? 's' : '' %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="color">
+                                <label for="color">
+                                    <h4>Select Colour</h4>
+                                </label>
+                                <select name="color" id="color">
+                                    <% for (let color of products.color) { %>
+                                        <option value="<%= color %>">
+                                            <%= color %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="button">ADD TO CART</button>
+                    </form>
+                </div>
+            </div>
+            <div class="specification">
+                <h2>Specifications</h2>
+                <div class="text1">
+                    <div class="color1">Product :</div>
+                    <div>
+                        <%= products.title %>
+                    </div>
+                    <div class="color1">Material :</div>
+                    <div>
+                        <%= products.material %>
+                    </div>
+                    <div class="color1">Colour :</div>
+                    <div>
+                        <% products.color.forEach(function(color, index) { %>
+                            <%= color %><% if (index < products.color.length - 1) { %> / <% } %>
+                        <% }); %>
+                    </div>
+                    <div class="color1">Dimenions :</div>
+                    <div>
+                        <%= products.dimention %>
+                    </div>
+                    <div class="color1">Storage :</div>
+                    <div>
+                        <% if (products.storage==true) { %>
+                            Yes
+                            <% } else { %>
+                                No
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reviews">
+        <div class="part-4">
+            <h2>Leave Review</h2>
+            <form action="/products/<%= products._id %>/reviews" method="post">
+                <div>
+                    <label for="rating" class="lable">Rating</label>
+                    <div>
+                        <fieldset class="starability-basic">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                          </fieldset>
+                    </div>
+                </div>
+                <div>
+                    <label for="body" class="lable">Review Text</label>
+                    <div class="text-area">
+                        <textarea name="review[body]" id="body" cols="30" rows="3" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <button class="btn-1">Submit</button>
+            </form>
+        </div>
+        <div class="part-5">
+            <% for (let review of products.reviews ) { %>
+            <div class="review-1">
+                <h3>Rating : <%= review.rating %></h3>
+                <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                <div class="author">By <%= review.author?.username || 'Unknown' %></div>
+                <div class="review-3">Review : <%= review.body %></div>
+                <form action="/products/<%= products._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+                    <button class="btn-1">Delete</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+    </div>
